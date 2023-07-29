@@ -8,4 +8,16 @@
         <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="lib-interop-middleware\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="lib-interop-middleware\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="lib-interop-middleware\**" />
+    </ItemGroup>
+
 </Project>

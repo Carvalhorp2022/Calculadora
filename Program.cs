@@ -5,16 +5,19 @@
         double resultado = double.NaN; 
 
         // Usar uma instrução switch para fazer uma operação matemática.
-        switch (op)
+        switch (Console.ReadLine())
         {
+            case "0": //Sair
+                Console.WriteLine("Obrigado e até breve");
+                break;
             case "1":
-                resultado = num1 + num2;
+                Console.WriteLine($"Your result: {num1} + {num2} = " + (num1 + num2));
                 break;
             case "2":
-                resultado = num1 - num2;
+                Console.WriteLine($"Your result: {num1} - {num2} = " + (num1 - num2));
                 break;
             case "3":
-                resultado = num1 * num2;
+                Console.WriteLine($"Your result: {num1} * {num2} = " + (num1 * num2));
                 break;
             case "4":
                 // inserir um divisor diferente de zero..
@@ -24,10 +27,40 @@
                 }
                 break;
             
+            case "5": // Resto da Divisão
+                int resto = RestoDivisao();
+                Console.WriteLine($"Resultado: {resto}");
+                break;
+            
+            case "6": // Potencialização
+                double potencia = Potenciacao();
+                Console.WriteLine($"Resultado: {potencia}");
+                break;
             default:
                 break;
         }
         return resultado;
+    }
+    
+    static int RestoDivisao()
+    {
+        Console.WriteLine("Digite o primeiro valor: ");
+        int valor1 = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Digite o segundo valor: ");
+        int valor2 = int.Parse(Console.ReadLine());
+
+        return valor1 % valor2;
+    }
+    private static double Potenciacao()
+    {
+        Console.WriteLine("Digite a base: ");
+        double baseNum = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Digite o expoente: ");
+        double expoente = double.Parse(Console.ReadLine());
+
+        return Math.Pow(baseNum, expoente);
     }
 }
 
@@ -70,14 +103,15 @@ class Program
                 Console.Write("Esta não é uma entrada válida. Por favor insira um valor inteiro:");
                 numInput2 = Console.ReadLine();
             }
-
             
             Console.WriteLine("Escolha uma operação na lista a seguir:");
+            Console.WriteLine("\t0 - Sair");
             Console.WriteLine("\t1 - Somar");
             Console.WriteLine("\t2 - Subtrair");
             Console.WriteLine("\t3 - Multiplicar");
             Console.WriteLine("\t4 - Dividir");
-            Console.Write("Sua Opção é ? ");
+            Console.WriteLine("\t5 - Resto da Divisão");
+            Console.WriteLine("\t6 - Potenciação");
 
             string op = Console.ReadLine();
 
@@ -98,8 +132,8 @@ class Program
             Console.WriteLine("------------------------\n");
 
            
-            Console.Write("Pressione '0' e Enter para fechar o aplicativo ou pressione qualquer outra tecla e Enter para continuar: ");
-            if (Console.ReadLine() == "0") endApp = true;
+            Console.Write("Pressione 's' e Enter para fechar o aplicativo ou pressione qualquer outra tecla e Enter para continuar: ");
+            if (Console.ReadLine() == "s") endApp = true;
 
             Console.WriteLine("\n");
         }
